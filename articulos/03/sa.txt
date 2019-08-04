@@ -1,0 +1,16 @@
+Buenas tardes,
+
+El ALM#7757 - TEF-ARG-BUAT-VAAP7- Collection || FA no ingresan a Collection de forma automática, fue solucionado y los clientes ingresaron a cobranzas exitosamente. 
+
+La ejecución se encuentra bloqueada por el ALM#7805 - TEF-ARG-BUAT-VAAP7 || Se visualiza un error al intentar detener los demonios "APinvoker". Debido a que hay un error al intentar detener los demonios "APinvoker". Esto nos imposibilita continuar con las pruebas, porque precisamos mover la fecha logica del ambiente.
+
+Se ejecutaron los siguientes casos:
+
+*Individuos CARIBU_009 TRIAL PERIOD = -1 PAGO PARCIAL
+*Individuos_009 TRIAL PERIOD = 0 PAGO TOTAL
+
+Se realizó la siguiente actividad:
+*Para el caso "MTV060_CORP011. Despausar posterior a Suspensión Parcial - Cliente corporativo pausado - Producto ONE o Comunidad", se ha pausado el tratamiento en los datos asignados al escenario (Dato original y Backup), dado que es un requisito previo a la ejecución del mismo.
+
+Los casos donde se pide realizar un pago parcial o total sobre una politica Individuos_009 con Trial Period = -1 y sobre una politica CARIBU_009 con Trial Period = 0, no pueden ser ejecutados en este momento, ya que la politica solo puede tener un unico valor configurado en el campo trial period.
+

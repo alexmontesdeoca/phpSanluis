@@ -1,0 +1,21 @@
+Que es una direccion IP?
+
+Es como una direccion de alguna calle
+
+La ip 192.168.0.1, es una ip privada, no se utiliza para internet, millones de computadoras la tienen.
+
+La otra ip, ejemplo : 62.57.21.11, pueden enviarnos cartas (paquetes) a nuestra direccion, aplicando TCP/IP.
+
+La ip tiene forma x.x.x.x, siendo x un numero entre el 0 y 255.
+
+Las ip pueden tener un dominio, por ejemplo, www.ebay.com = 2.19.108.82, el dominio es llamado de DNS.
+
+ISP = Proveedores de internet
+
+Los ISP, tienen varios ordenadores que guardan las ip asociadas a los dns, para luego mostrarte la pagina, 
+si se cae una computadora, van a buscar la info a otra.
+
+En https://www.networksolutions.com/whois/index.jsp, esta la infomracion sobre el dns.
+
+
+

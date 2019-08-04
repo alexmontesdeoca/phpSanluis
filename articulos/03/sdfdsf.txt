@@ -1,0 +1,14 @@
+Acciendo en un servidor FTP port mode sin firewall que no admite pasv mode
+
+Tens un servidor en el puerto 21 que no acepta pasv mode.
+ Tienes un firewall que no esta configurado y bloquea todas las conexiones a puertos, incluido el 21.
+ Ningun cliente podra conectarse
+
+Acciendo en un servidor FTP en port mode con firewall  que no admite pasv mode
+
+
+Te va a dejar conectarse, pero no va a poder transferir datos.
+
+Acciendo en un servidor FTP en pasv mode con firewall  que admite pasv mode
+
+De esta manera, se pueden conectar de manera segura. La unica que funciona 

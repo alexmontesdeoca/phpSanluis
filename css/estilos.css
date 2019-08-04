@@ -1,0 +1,106 @@
+
+body .imagenParrafo {
+
+    width: 90%;
+    text-align: center;
+}
+
+.container_nav,.navbar {
+    background-color: #29630c;
+    border-color: #f9ecec;
+    color:#ffffff;
+}
+
+
+.navbar-inverse .navbar-nav>li>a  {
+
+
+    color:white;
+}
+
+.logo {
+
+    margin-top: 2%;
+    width:20%;
+    border-radius: 12px;
+
+
+}
+
+
+.lista_opciones{
+	
+	text-align: center;
+	
+	}
+
+
+.lista_opciones li {
+	
+	background: #feffca;
+	text-align: center;	
+	border: 1px solid black;
+	color: black;
+    font-size: 15px;
+    margin: 2px;
+    cursor:pointer;
+    list-style:none
+			
+}
+
+.lista_opciones li a {
+	
+	background: #feffca;
+	text-align: center;	
+    font-size: 15px;
+    margin: 2px;
+    cursor:pointer;
+    text-decoration:none;
+			
+}
+
+table{
+
+
+    color: black;
+    font-size: 15px;
+
+}
+
+.lista_opciones{
+	
+    text-align: center;
+    padding-top: 70px;
+	
+	}
+
+
+.lista_opciones li {
+	
+	background: #feffca;
+	text-align: center;	
+	border: 1px solid black;
+	color: black;
+    font-size: 15px;
+    margin: 2px;
+    cursor:pointer;
+    list-style:none
+			
+}
+
+.lista_opciones li a {
+	
+	background: #feffca;
+	text-align: center;	
+    font-size: 15px;
+    margin: 2px;
+    cursor:pointer;
+    text-decoration:none;
+			
+}
+
+.liUsuario {
+
+
+padding: 5px;
+}
