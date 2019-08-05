@@ -48,13 +48,15 @@
        
       if (isset($_SESSION["rol"])){        
        
-    ?>   
-      
+    ?> 
+    <ul class="nav navbar-nav navbar-left">
+            <li><a href=<?php print_r($botonera["url"]["registro"]);?>> Registrar Usuario</a></li>
+            </ul>
       <ul class="nav navbar-nav navbar-right">
-      <li><span class="glyphicon glyphicon-user liUsuario"></span> <?php echo "Bienvenido " . $_SESSION["nombre"];?></li>
+      <li><span class="glyphicon glyphicon-user liUsuario"><a style="text-decoration:none;" href="index.php?seccion=miPerfil"> <?php echo "Bienvenido:" . $_SESSION["nombre"];?></a></span></li>
       <form action="cerrarSesion.php" method="post" class="pull-left">
       <li><span class="liUsuario"></span><button type="submit" style name="cerrarSesion" class="btn btn-success btn-sm glyphicon glyphicon-log-out">Salir</button></li>
-      </form>
+      </form> 
     </ul>
 
     <?php
@@ -93,13 +95,14 @@
             if(!empty($_GET['seccion'])){
                 
                 if($_GET['seccion'] == "lugares"){
+                  
+                    if(isset($_SESSION["rol"])){
+                            
+                      require('secciones/galeria.php');
+                     
+                       }else {
+                        require('requerirIngreso.php');
                 
-                    if(empty($_SESSION["rol"])){
-   
-                    require('requerirIngreso.php');
-                    } else {
-
-                        require('secciones/galeria.php');
                     }
 
                 }elseif ($_GET['seccion'] == "contacto") {
@@ -119,6 +122,10 @@
 
                     require('registrarse.php');  
                
+               }elseif ($_GET['seccion'] == "miPerfil") {
+
+                require('miPerfil.php');  
+
                }else{
                     
                     require('secciones/index.php');        

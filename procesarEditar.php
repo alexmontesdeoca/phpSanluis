@@ -1,17 +1,16 @@
 <?php
 
-2 = cuidades
+/*2 = cuidades
 3 = hoteles
-4 = restaurantes
+4 = restaurantes*/
     require_once("database/cuidades.php");
     require_once("database/hoteles.php");
     require_once("database/restaurantes.php");
    
 	$categoria = $_POST["categoria"];
 	
-    
 
-    if( $categoria == 1){
+    if( $categoria == "Cuidades"){
 
         $categoria = "Cuidades";
 	if(empty($_POST["id"])){
@@ -67,7 +66,7 @@
 
 	header("Location:panel.php");
 	
-    } elseif( $categoria == 3){
+    } elseif( $categoria ==  "Restaurantes"){
         
         $categoria = "Restaurantes";
 
@@ -127,7 +126,7 @@
 
 }   else {
 
-    if($categoria == 2){
+    if($categoria == "Hoteles"){
         $categoria = "Hoteles";
         if(empty($_POST["id"])){
             header("Location:panel.php");
@@ -184,3 +183,5 @@
         header("Location:panel.php");
     }
 }
+
+?>

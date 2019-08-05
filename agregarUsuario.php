@@ -1,33 +1,16 @@
-
-   <div class="container">
-
-       
-                    
-                    <hr>
-
-                        
-
-                    <form class="col-md-12" id="contact-form" method="post" action="procesarCrear.php" role="form">
+    <form class="col-md-12" id="contact-form" method="post" action="procesarCrear.php" role="form">
                         <?php 
-
-                       error_reporting(E_ALL ^ E_NOTICE);
+                            if(isset($resultado)){
                             $resultado = $_GET['result'];
 
-                        if ($resultado=="exist") {
-                            $errores .= "El email se encuentra registrado en nuestra base de datos, ingresa otro <br />";
-                        } elseif ($resultado=="vacio"){
-
-                            $errores .= "Por favor completa todos los campos <br />";
-
-
-                        } 
-                        
-                        else {
-                            if($resultado == "registrado"){
-                            $enviado .= "Se ha registrado con exito";
-
-                        }
-                        }
+                            if ($resultado=="exist") {
+                                $errores .= "El email se encuentra registrado en nuestra base de datos <br />";
+                            } else {
+                                if($resultado == "registrado"){
+                                $enviado .= "Se ha registrado con exito";
+    
+                            }
+                            }}
 
 
                         ?>
@@ -65,10 +48,7 @@
                                         
                                     </div>
                                 </div>
-                                <?php
-                        if($_SESSION["rol"]==1):
-                              ?>
-                             <div class="col-md-6">
+                                <div class="col-md-6">
                                 <div class="form-group">
                     <label>Nivel de usuario</label>
                     <select name="nivel"  class="form-control">
@@ -79,11 +59,8 @@
                     </select>                    
                 </div>
                 </div>
-                </form>
-<?php
-
-                    endif;
-?>
+                
+                             
                                 </div>
                                  <?php if (!empty($errores)) : ?>
                                     <hr>
@@ -94,12 +71,12 @@
 
                                     </div></div> 
 
-                                <?php elseif($enviado) : ?>
+                                <?php elseif(isset($enviado)) : ?>
                                     <hr>
                                     <div class="row"> 
                                     <div class="col-md-12 alert alert-success">
                                         
-                                        <p class="text-center"><?php echo "Se ha registrado el usuario con exito" ?>
+                                        <p class="text-center"><?php echo $enviado?>
                                                                 </p>
 
                                     </div>
@@ -107,16 +84,10 @@
                                 <?php endif ?>
                                 <hr>
                                 <div class="col-md-12 text-center">
-                                    <input type="submit" name="submit" class="btn btn-success btn-send" value="Registrarse">
+                                    <input type="submit" name="submit" class="btn btn-success btn-send" value="Agregar Usuario">
                                 </div>
                             </div>
                             
                         </div>
 
                     </form>
-
-        </div> <!-- /.container-->
-        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="js/validacion.js"></script>
-        <script src="contact.js"></script>

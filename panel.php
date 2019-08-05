@@ -1,7 +1,11 @@
 <!doctype html>
 <?php
+if(empty($_SESSION)){
 
-session_start();
+    session_start();
+
+
+}
 
 
 
@@ -23,7 +27,8 @@ if($_SESSION["rol"] == "" ||$_SESSION["rol"] == 0){
         <link rel="stylesheet" href="css/main.css">
         <?php 
               include("configuraciones/botonera_array.php");
-              require("configuraciones/config.php");
+              include("configuraciones/funciones.php");
+              require_once("configuraciones/config.php");
 			  require_once("database/categorias.php");
               require_once("database/cuidades.php");
 			  require_once("database/restaurantes.php");
@@ -54,8 +59,6 @@ if($_SESSION["rol"] == "" ||$_SESSION["rol"] == 0){
     </div>
     <ul class="nav navbar-nav">
       <li><a href=<?php print_r($botonera["url"]["incio"]);?>>Inicio</a></li>
-      <li><a href=<?php print_r($botonera["url"]["lugares"]);?>>Lugares</a></li>
-      <li><a href=<?php print_r($botonera["url"]["contacto"]);?>>Contacto</a></li>
     </ul>
     <?php
 
@@ -134,16 +137,23 @@ if($_SESSION["rol"] == "" ||$_SESSION["rol"] == 0){
             if(!empty($_GET['seccion'])){
                 
                 if($_GET['seccion'] == "panelLugares"){
+                    if($_SESSION['rol'] == 2 || $_SESSION['rol'] == 1 ){
 
-                    require('panelLugares.php');    
+                        require('panelLugares.php');    
+
+                    }
 
                 }elseif ($_GET['seccion'] == "panelHoteles") {
-
+                    if($_SESSION['rol'] == 3 || $_SESSION['rol'] == 1 ){
                     require('panelHoteles.php'); 
-                     
+                }
+
                 }elseif ($_GET['seccion'] == "panelRestaurantes") {
+                    if($_SESSION['rol'] == 4 || $_SESSION['rol'] == 1 ){
 
                     require('panelRestaurantes.php');  
+
+                }
                 }else{
                     
                     require('panel.php');        
@@ -155,123 +165,6 @@ if($_SESSION["rol"] == "" ||$_SESSION["rol"] == 0){
         }
     
     ?>
-
-    <?php
-        if($_SESSION["rol"]==1):
-    ?>
-    
-    <form class="col-md-12" id="contact-form" method="post" action="procesarCrear.php" role="form">
-                        <?php 
-
-                       error_reporting(E_ALL ^ E_NOTICE);
-                            $resultado = $_GET['result'];
-
-                        if ($resultado=="a") {
-                            $errores .= "Por favor ingresa un nombre <br />";
-                        } elseif ($resultado=="b") {
-                           $errores .= "Por favor ingresa un apellido <br />";
-                        }elseif ($resultado=="c") {
-                           $errores .= "Por favor ingresa un email<br />";
-                        } 
-                        elseif ($resultado=="e") {
-                           $errores.= "Por favor ingresa un correo valido <br />";
-                        }
-                        elseif ($resultado=="f") {
-                               
-                                
-                                $enviado = "Mensaje Enviado";
-                        }
-                        else{
-                            if ($resultado=="d"){
-                              $errores .=  "Por favor ingresa un Mensaje <br />";                             }
-                        }
-
-
-                        ?>
-                        <div class="messages"></div>
-
-                        <div class="controls">
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="form_name">Nombre*</label>
-                                        <input id="form_name" type="text" name="name" class="form-control" placeholder="Nombre*">
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="form_lastname">Apellido *</label>
-                                        <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Apellido *" >
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="form_email">Mail *</label>
-                                        <input id="form_email" type="email" name="email" class="form-control" placeholder="Email *" >
-                                        </div>
-                                    </div>
-                                     <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="form_passwd">Contraseña *</label>
-                                        <input id="form_passwd" type="passwd" name="pass" class="form-control" placeholder="Contraseña *" >
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                <div class="form-group">
-                    <label>Nivel de usuario</label>
-                    <select name="nivel"  class="form-control">
-                    <option value="restaurantes" name="restaurantes">Restaurantes</option>
-                    <option value="lugares" name="lugares" >Lugares</option>
-                    <option value="hoteles" name="hoteles" >Hoteles</option>
-                    <option value="superUsuario" name="superUsuario" >Super Usuario</option>
-                    </select>                    
-                </div>
-                </div>
-                
-                             
-                                </div>
-                                 <?php if (!empty($errores)) : ?>
-                                    <hr>
-                                    <div class="row">   
-                                    <div class=" col-md-12 alert alert-danger">
-                                        
-                                       <p class="text-center"> <?php echo $errores;?></p>
-
-                                    </div></div> 
-
-                                <?php elseif($enviado) : ?>
-                                    <hr>
-                                    <div class="row"> 
-                                    <div class="col-md-12 alert alert-success">
-                                        
-                                        <p class="text-center"><?php echo $_GET['name'] ."<br />";
-                                                                echo $_GET['surname']."<br />";
-                                                                echo $_GET['email']."<br />";
-                                                                echo $_GET['message']."<br />";?>
-                                                                </p>
-
-                                    </div>
-                                    </div>
-                                <?php endif ?>
-                                <hr>
-                                <div class="col-md-12 text-center">
-                                    <input type="submit" name="submit" class="btn btn-success btn-send" value="Agregar Usuario">
-                                </div>
-                            </div>
-                            
-                        </div>
-
-                    </form>
-<?php
-
-                    endif;
-?>
       <footer>
       
       </footer>

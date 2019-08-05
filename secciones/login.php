@@ -10,25 +10,16 @@
                        error_reporting(E_ALL ^ E_NOTICE);
                             $resultado = $_GET['result'];
 
-                        if ($resultado=="a") {
-                            $errores .= "Por favor ingresa un nombre <br />";
-                        } elseif ($resultado=="b") {
-                           $errores .= "Por favor ingresa un apellido <br />";
-                        }elseif ($resultado=="c") {
-                           $errores .= "Por favor ingresa un email<br />";
-                        } 
-                        elseif ($resultado=="e") {
-                           $errores.= "Por favor ingresa un correo valido <br />";
-                        }
-                        elseif ($resultado=="f") {
-                               
-                                
-                                $enviado = "Mensaje Enviado";
-                        }
-                        else{
-                            if ($resultado=="d"){
-                              $errores .=  "Por favor ingresa un Mensaje <br />";                             }
-                        }
+                        if ($resultado=="true") {
+                            $errores .= "Por favor completa todos los datos <br />";
+                        } else {
+
+                            if ($resultado=="exist"){
+
+                                $errores .= "El usuario o contraseña es incorrecta <br />";
+
+                            }
+                         } 
 
 
                         ?>
@@ -62,20 +53,6 @@
                                        <p class="text-center"> <?php echo $errores;?></p>
 
                                     </div></div> 
-
-                                <?php elseif($enviado) : ?>
-                                    <hr>
-                                    <div class="row"> 
-                                    <div class="col-md-12 alert alert-success">
-                                        
-                                        <p class="text-center"><?php echo $_GET['name'] ."<br />";
-                                                                echo $_GET['surname']."<br />";
-                                                                echo $_GET['email']."<br />";
-                                                                echo $_GET['message']."<br />";?>
-                                                                </p>
-
-                                    </div>
-                                    </div>
                                 <?php endif ?>
                                 <hr>
                                 <div class="col-md-12 text-center">

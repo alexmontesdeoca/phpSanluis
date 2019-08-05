@@ -4,11 +4,7 @@
 
 
 
-
-
-
-
-
+/*
 
 function texto($ruta,$articulo){
 
@@ -20,7 +16,7 @@ echo $archivo;
 
 }
 
-
+*/
 function ultimoId($array){
     usort($array, function ($a, $b) {
         return $b['id'] - $a['id'];

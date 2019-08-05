@@ -10,7 +10,7 @@
 
 
 
-function texto($ruta,$articulo){
+/*function texto($ruta,$articulo){
 
 $archivo = file_get_contents($ruta."/".$articulo.".txt");
 $archivo = ucfirst($archivo);
@@ -18,7 +18,7 @@ $archivo = nl2br($archivo);
 echo $archivo;
 
 
-}
+}*/
 
 
 function ultimoId($array){
@@ -36,7 +36,7 @@ function ultimoId($array){
 
 
 
-function agregarArticulo($nombre,$titulo,$imagen,$info){
+/*function agregarArticulo($nombre,$titulo,$imagen,$info){
 
 
 
@@ -44,5 +44,5 @@ function agregarArticulo($nombre,$titulo,$imagen,$info){
 	return $articulo[$nombre]["titulo"]=$titulo;
 	return $articulo[$nombre]["imagen"]=$imagen;
 	return $articulo[$nombre]["info"]=$info;
-}
+}*/
 ?>

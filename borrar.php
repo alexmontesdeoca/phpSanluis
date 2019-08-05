@@ -64,7 +64,7 @@ if ($categoria == "Cuidades") {
 	file_put_contents("database/restaurantes.json",$json);
 	
 	
-	header("panel.php?seccion=panelRestaurantes");
+	header("Location:panel.php?seccion=panelRestaurantes");
 	
 	
 } else {

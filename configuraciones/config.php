@@ -5,6 +5,6 @@
 	error_reporting(E_ALL);
 
 
-	define('RUTA', "http://localhost/parcial%20real/");
+	define('RUTA', "http://localhost/Final%20Real%20V2/");
 
 ?>

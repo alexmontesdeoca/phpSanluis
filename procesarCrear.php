@@ -18,8 +18,28 @@ $apellido = $_POST["surname"];
 $email = $_POST["email"];
 $password = $_POST["pass"];
 
+if(empty($_POST["name"]) || empty($_POST["email"])  || empty($_POST["surname"]) || empty($_POST["pass"])){
 
+      header("Location:index.php?seccion=registro&result=vacio");
 
+}
+
+foreach($usuarios as $usuario){
+		
+       if($usuario["email"] == $email){
+   
+           header("Location:index.php?seccion=registro&result=exist");
+         
+       } else {
+
+            if(isset($_POST["nivel"]) && $usuario["email"] == $email ){
+
+                  header("Location:panel.php?result=exist");
+
+            }
+       }
+   
+   }
 
 if(!empty($nombreR) && !empty($apellido) && !empty($email) && !empty($password) && empty($nivel)){
       if(isset($_POST["nivel"])){
@@ -33,8 +53,8 @@ if(!empty($nombreR) && !empty($apellido) && !empty($email) && !empty($password) 
                   $arrayJson = json_encode($usuarios);
             
                   file_put_contents("database/usuarios.json",$arrayJson);
-                  header("Location:panel.php");
-                        } elseif ($nivel == "hoteles"){
+                  header("Location:panel.php?result=registrado");
+            } elseif ($nivel == "hoteles"){
                               $id = ultimoId($usuarios) + 1;
 
             $usuarios[] = ["id" => $id , "nombre" => $nombreR,"apellido" => $apellido, "email" => $email, "password" => password_hash($password,PASSWORD_DEFAULT), "rol" => 3];
@@ -42,8 +62,8 @@ if(!empty($nombreR) && !empty($apellido) && !empty($email) && !empty($password) 
             $arrayJson = json_encode($usuarios);
       
             file_put_contents("database/usuarios.json",$arrayJson);
-            header("Location:panel.php");
-                        } elseif ($nivel == "restaurantes"){
+            header("Location:index.php?seccion=registro&result=registrado");
+      } elseif ($nivel == "restaurantes"){
 
                               $id = ultimoId($usuarios) + 1;
 
@@ -52,7 +72,7 @@ if(!empty($nombreR) && !empty($apellido) && !empty($email) && !empty($password) 
             $arrayJson = json_encode($usuarios);
       
             file_put_contents("database/usuarios.json",$arrayJson);
-            header("Location:panel.php");
+            header("Location:index.php?seccion=registro&result=registrado");
 
 
                         }else{
@@ -66,8 +86,8 @@ if(!empty($nombreR) && !empty($apellido) && !empty($email) && !empty($password) 
                                     $arrayJson = json_encode($usuarios);
                               
                                     file_put_contents("database/usuarios.json",$arrayJson);
-                                    header("Location:panel.php");
-                  
+                                    header("Location:index.php?seccion=registro&result=registrado");
+
                               }
                         }
       } else {
@@ -81,7 +101,7 @@ if(!empty($nombreR) && !empty($apellido) && !empty($email) && !empty($password) 
       file_put_contents("database/usuarios.json",$arrayJson);
 
 
-      header("Location:index.php?seccion=index");
+      header("Location:index.php?seccion=registro&result=registrado");
       }
       
 }
@@ -169,5 +189,5 @@ header("Location:panel.php");
 }
 }
       
-	
+
 ?>

@@ -1,0 +1,11 @@
+<?php
+include("configuraciones/botonera_array.php");
+require_once("configuraciones/config.php");
+require_once("database/categorias.php");
+require_once("database/cuidades.php");
+require_once("database/restaurantes.php");
+require_once("database/hoteles.php");
+include_once("configuraciones/botonera_array.php");
+include_once("validacion.php");
+require("configuraciones/config.php");
+?>

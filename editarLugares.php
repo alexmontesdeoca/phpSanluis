@@ -209,13 +209,11 @@ img{
                     <select name="categoria"  class="form-control">
                         <?php
                            $enviado ="";
-                            foreach($categorias as $categoria):
+                            $categoria = $_POST['categoria'];
+                            $nombreOpcion = $_POST['categoria'];
                         ?>                                                
-                                <option value="<?= $categoria["id"]; ?>"><?= $categoria["nombre"]; ?></option>
-                        <?php
-                            endforeach;
+                                <option value="<?= $categoria; ?>"><?= $nombreOpcion; ?></option>
                         
-                        ?>
                     </select>                    
                 </div><div class="form-group">
 					 <?php

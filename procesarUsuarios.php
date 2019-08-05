@@ -5,7 +5,20 @@ $usuario = $_POST["email"];
 $password = $_POST["pass"];
 $us="";
 
+$errores = "";
+$enviado = "";
 
+
+
+
+if(empty($password) || empty($usuario) ){
+
+    header("Location:index.php?seccion=inicio&result=true");
+
+}
+
+
+if (!empty($password) && !empty($usuario)) {
 
 foreach($usuarios as $ind => $usr){
     
@@ -16,35 +29,36 @@ foreach($usuarios as $ind => $usr){
        
             $us = $usr;
             
+            $_SESSION["email"] = $us["email"];
+            $_SESSION["rol"]  = $us["rol"];
+            $_SESSION["nombre"]  = $us["nombre"];
+            $_SESSION["id"]  = $us["id"];
             
-        }
+            if($us["rol"]==0){
+
+                header("Location:index.php");
+
+            } else {
+
+                if($us["rol"]!=0){
+
+
+                    header("Location:panel.php");
+            }
+           
+
+
+        } 
         
+    } else {
+
+        header("Location:index.php?seccion=inicio&result=exist");
+
     }
     
 }
+}}
 
-
-
-
-if(empty($us)){
-    $_SESSION["login"] = "error";
-   /// header("Location:../index.php?seccion=registro");
-   // die();
-}
-
-$_SESSION["email"] = $us["email"];
-$_SESSION["rol"]  = $us["rol"];
-$_SESSION["nombre"]  = $us["nombre"];
-
-
-
-
-if($us["rol"] == 1){
-    header("Location:panel.php");
-}else{
-    header("Location:index.php");
-    
-}
 
 
 ?>
