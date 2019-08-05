@@ -1,8 +1,5 @@
 <?php
 
-/*2 = cuidades
-3 = hoteles
-4 = restaurantes*/
     require_once("database/cuidades.php");
     require_once("database/hoteles.php");
     require_once("database/restaurantes.php");
@@ -33,7 +30,6 @@
 		die();
 	}
 	
-	//recien acá puedo usar esa película.
 	
 	$nombre = $_POST["nombre"];
 
@@ -42,10 +38,8 @@
 		
 		move_uploaded_file($_FILES["imagen"]["tmp_name"],$imagen);
 		
-		//con esto borramos la imagen vieja.
 		unlink($cuidadEditar["imagen"]);
 		
-		//echo $cuidadEditar["imagen"];
 		
 		
 	}else{
@@ -90,7 +84,6 @@
 		die();
 	}
 	
-	//recien acá puedo usar esa película.
 	
 	$nombre = $_POST["nombre"];
 
@@ -100,10 +93,8 @@
 		
 		move_uploaded_file($_FILES["imagen"]["tmp_name"],$imagen);
 		
-		//con esto borramos la imagen vieja.
 		unlink($restauranteEditar["imagen"]);
 		
-		//echo $cuidadEditar["imagen"];
 		
 		
 	}else{
@@ -148,7 +139,6 @@
             die();
         }
         
-        //recien acá puedo usar esa película.
         
         $nombre = $_POST["nombre"];
 
@@ -158,10 +148,8 @@
             
             move_uploaded_file($_FILES["imagen"]["tmp_name"],$imagen);
             
-            //con esto borramos la imagen vieja.
             unlink( $hotelEditar["imagen"]);
             
-            //echo $cuidadEditar["imagen"];
             
             
         }else{

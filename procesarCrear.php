@@ -18,18 +18,23 @@ $apellido = $_POST["surname"];
 $email = $_POST["email"];
 $password = $_POST["pass"];
 
+
+
+
+
 if(empty($_POST["name"]) || empty($_POST["email"])  || empty($_POST["surname"]) || empty($_POST["pass"])){
 
       header("Location:index.php?seccion=registro&result=vacio");
 
 }
+if(!empty($_POST["email"])){
 
 foreach($usuarios as $usuario){
 		
        if($usuario["email"] == $email){
    
            header("Location:index.php?seccion=registro&result=exist");
-         
+           exit;
        } else {
 
             if(isset($_POST["nivel"]) && $usuario["email"] == $email ){
@@ -40,7 +45,7 @@ foreach($usuarios as $usuario){
        }
    
    }
-
+}
 if(!empty($nombreR) && !empty($apellido) && !empty($email) && !empty($password) && empty($nivel)){
       if(isset($_POST["nivel"])){
             $nivel = $_POST["nivel"];
@@ -106,10 +111,41 @@ if(!empty($nombreR) && !empty($apellido) && !empty($email) && !empty($password) 
       
 }
 
+$categoria = $_POST["categoria"];
+
+if (empty($_POST["nombre"]) || empty($_FILES["imagen"]) || empty($_POST["categoria"])) {
+    
+    if($categoria == "Restaurantes"){ 
+    header("Location:crearRestaurantes.php?result=vacio");
+    
+    exit;
+        
+        } elseif($categoria == "Hoteles"){ 
+            
+         header("Location:crearHoteles.php?result=vacio");
+         exit;
+        
+        }  else {
+        
+            if($categoria == "Cuidades"){ 
+        header("Location:crearCuidades.php?result=vacio");
+    
+                exit;
+        
+        }
+    }
+
+} 
+
+
+
 if (isset($_POST["nombre"]) && isset($_FILES["imagen"]) &&  isset($_POST["categoria"])) {
       $nombre = $_POST["nombre"];
       $imagen = $_FILES["imagen"];
       $categoria = $_POST["categoria"];
+    
+    
+
    
 if($categoria == "Cuidades"){
 
@@ -191,3 +227,4 @@ header("Location:panel.php");
       
 
 ?>
+

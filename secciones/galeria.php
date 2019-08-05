@@ -20,11 +20,7 @@
 			
 				$subDirectorio = "$directorio/$categoria";
 				
-				$subDir = opendir($subDirectorio);
-				/*
-				while($pelicula = readdir($subDir)):
-					if($pelicula != "." && $pelicula != ".."):
-				*/	
+				$subDir = opendir($subDirectorio);	
 					$img = glob("$subDirectorio/*.jpg");
 					
 					foreach($img as $imagen):
@@ -48,10 +44,6 @@
 		
 		<?php
 			endforeach;
-		/*
-				endif;
-			endwhile;
-			*/
 		?>
 			</div>
 		<?php

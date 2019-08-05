@@ -204,7 +204,7 @@ img{
                     error_reporting(E_ALL ^ E_NOTICE);
                             $resultado = $_GET['result'];
 
-                        if ($resultado=="error") {
+                        if ($resultado=="vacio") {
                             $errores .= "Por favor completa todos los campos <br />";
                         } 
                           else {
@@ -271,11 +271,11 @@ img{
 
                     </form>
 
-                </div><!-- /.8 -->
+                </div>
 
-            </div> <!-- /.row-->
+            </div> 
 
-        </div> <!-- /.container-->
+        </div> 
         <hr>
 
 

@@ -86,12 +86,6 @@
     header("location:index.php?seccion=miPerfil&result=cambios");
 
 }}
-/*	if(!isset($usuarioEditar)){
-        header("index.php?seccion=miPerfil");
-		die();
-    }
 
-*/
-	
     
 ?>

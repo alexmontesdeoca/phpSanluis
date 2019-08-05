@@ -21,7 +21,6 @@
 		die();
 	}
 	
-	//recien acá puedo usar esa película.
 	
 	$nombre = $_POST["nombre"];
 	$categoria = $_POST["categoria"];
@@ -31,10 +30,8 @@
 		
 		move_uploaded_file($_FILES["imagen"]["tmp_name"],$imagen);
 		
-		//con esto borramos la imagen vieja.
 		unlink($cuidadEditar["imagen"]);
 		
-		//echo $cuidadEditar["imagen"];
 		
 		
 	}else{

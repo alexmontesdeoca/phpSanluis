@@ -125,9 +125,9 @@
 
                     </form>
 
-                </div><!-- /.8 -->
+                </div>
 
-            </div> <!-- /.row-->
+            </div>
 
-        </div> <!-- /.container-->
+        </div> 
         <hr>
